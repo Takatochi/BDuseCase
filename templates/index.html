@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Чат</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<h1>Чат</h1>
+
+<form action="/send" method="POST">
+    <input type="hidden" name="chat_id" value="1">
+    <input type="number" name="sender_id" placeholder="ID користувача" required>
+    <textarea name="content" placeholder="Ваше повідомлення" required></textarea>
+    <button type="submit">Надіслати</button>
+</form>
+
+<h2>Повідомлення</h2>
+<ul>
+    {{range .}}
+    <li>
+        <strong>{{.Sender}}:</strong> {{.Content}}<br>
+        <small>{{.SentAt}}</small>
+    </li>
+    {{else}}
+    <li>Поки що немає повідомлень</li>
+    {{end}}
+</ul>
+
+<a href="/logs">Переглянути журнал дій</a>
+</body>
+</html>

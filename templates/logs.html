@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Журнал дій</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<h1>Журнал дій</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Дія</th>
+    <th>Користувач</th>
+    <th>Тип цілі</th>
+    <th>ID цілі</th>
+    <th>Час</th>
+  </tr>
+  </thead>
+  <tbody>
+  {{range .}}
+  <tr>
+    <td>{{.Action}}</td>
+    <td>{{.Username}}</td>
+    <td>{{.TargetType}}</td>
+    <td>{{.TargetID}}</td>
+    <td>{{.CreatedAt}}</td>
+  </tr>
+  {{else}}
+  <tr><td colspan="5">Немає записів</td></tr>
+  {{end}}
+  </tbody>
+</table>
+<a href="/chat/1">← Повернутись до чату</a>
+</body>
+</html>
